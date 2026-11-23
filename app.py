@@ -23,10 +23,12 @@ def telegram_send(message):
 @app.get("/")
 def index():
     with LOCK:
-        snapshot = dict(LATEST)
-    return render_template("index.html", latest=snapshot)
-
-@app.get("/health")
+23   @app.get("/")   
+24  def index():
+25   with LOCK:   
+26      return jsonify({"status": "Bot is running", "signals": dict(LATEST)})
+27
+28  @app.get("/health")
 def health():
     return jsonify({"status": "ok", "version": "2.0", "asset": "EUR/USD"})
 
