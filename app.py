@@ -23,8 +23,8 @@ def telegram_send(message):
 
 @app.get("/")   
 def index():
-with LOCK:   
-    return jsonify({"status": "Bot is running", "signals": dict(LATEST)})
+    with LOCK:   
+        return jsonify({"status": "Bot is running", "signals": dict(LATEST)})
 
 @app.get("/health")
 def health():
