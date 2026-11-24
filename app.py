@@ -21,12 +21,12 @@ def telegram_send(message):
         return False, str(exc)
 
 
-   @app.get("/")   
-   def index():
-       with LOCK:   
-           return jsonify({"status": "Bot is running", "signals": dict(LATEST)})
+@app.get("/")   
+def index():
+with LOCK:   
+    return jsonify({"status": "Bot is running", "signals": dict(LATEST)})
 
-  @app.get("/health")
+@app.get("/health")
 def health():
     return jsonify({"status": "ok", "version": "2.0", "asset": "EUR/USD"})
 
